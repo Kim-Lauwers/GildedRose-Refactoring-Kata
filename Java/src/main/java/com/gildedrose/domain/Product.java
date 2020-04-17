@@ -22,10 +22,6 @@ public class Product {
         this.qualityCalculator = qualityCalculator;
     }
 
-    public int getQuality() {
-        return quality;
-    }
-
     public void applyNewDay() {
         if (!"Sulfuras, Hand of Ragnaros".equals(name)) {
             this.sellIn -= SELL_IN_DECREASE_AMOUNT;

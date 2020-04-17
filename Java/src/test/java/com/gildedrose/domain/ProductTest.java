@@ -63,6 +63,15 @@ class ProductTest {
     }
 
     @Test
+    void test_increase_quality_cannot_exceed_50() {
+        final Product product = defaultProduct().withQuality(50).build();
+
+        product.increaseQuality();
+
+        assertThat(product.getQuality()).isEqualTo(50);
+    }
+
+    @Test
     void item_EqualsTester() {
         new EqualsTester()
                 .addEqualityGroup(emptyProduct().withName("+5 Dexterity Vest").withSellIn(10).withQuality(20).build())

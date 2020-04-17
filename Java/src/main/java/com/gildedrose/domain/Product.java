@@ -9,6 +9,7 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 public class Product {
     private static final int SELL_IN_DECREASE_AMOUNT = 1;
     private static final int QUALITY_INCREASE_AMOUNT = 1;
+    public static final int MAXIMUM_QUALITY = 50;
 
     private String name;
 
@@ -44,7 +45,7 @@ public class Product {
     }
 
     public void increaseQuality() {
-        this.quality += QUALITY_INCREASE_AMOUNT;
+        this.quality = (this.quality + QUALITY_INCREASE_AMOUNT) <= MAXIMUM_QUALITY ? this.quality + QUALITY_INCREASE_AMOUNT : MAXIMUM_QUALITY;
     }
 
     @Override

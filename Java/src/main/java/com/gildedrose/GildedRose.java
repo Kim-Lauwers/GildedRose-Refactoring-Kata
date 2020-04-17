@@ -28,21 +28,15 @@ class GildedRose {
                     currentProduct.decreaseQuality(1);
                 }
             } else {
-                if (currentProduct.getQuality() < 50) {
-                    currentProduct.increaseQuality();
+                currentProduct.increaseQuality();
 
-                    if (currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (currentProduct.getSellIn() < 11) {
-                            if (currentProduct.getQuality() < 50) {
-                                currentProduct.increaseQuality();
-                            }
-                        }
+                if (currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (currentProduct.getSellIn() < 11) {
+                        currentProduct.increaseQuality();
+                    }
 
-                        if (currentProduct.getSellIn() < 6) {
-                            if (currentProduct.getQuality() < 50) {
-                                currentProduct.increaseQuality();
-                            }
-                        }
+                    if (currentProduct.getSellIn() < 6) {
+                        currentProduct.increaseQuality();
                     }
                 }
             }
@@ -61,9 +55,7 @@ class GildedRose {
                         currentProduct.decreaseQuality(currentProduct.getQuality());
                     }
                 } else {
-                    if (currentProduct.getQuality() < 50) {
-                        currentProduct.increaseQuality();
-                    }
+                    currentProduct.increaseQuality();
                 }
             }
         }

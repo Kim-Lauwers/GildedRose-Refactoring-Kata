@@ -24,23 +24,23 @@ class GildedRose {
                     && !products.get(i).getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (products.get(i).getQuality() > 0) {
                     if (!products.get(i).getName().equals("Sulfuras, Hand of Ragnaros")) {
-                        products.get(i).setQuality(products.get(i).getQuality() - 1);
+                        products.get(i).decreaseQuality(1);
                     }
                 }
             } else {
                 if (products.get(i).getQuality() < 50) {
-                    products.get(i).setQuality(products.get(i).getQuality() + 1);
+                    products.get(i).increaseQuality(1);
 
                     if (products.get(i).getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (products.get(i).getSellIn() < 11) {
                             if (products.get(i).getQuality() < 50) {
-                                products.get(i).setQuality(products.get(i).getQuality() + 1);
+                                products.get(i).increaseQuality(1);
                             }
                         }
 
                         if (products.get(i).getSellIn() < 6) {
                             if (products.get(i).getQuality() < 50) {
-                                products.get(i).setQuality(products.get(i).getQuality() + 1);
+                                products.get(i).increaseQuality(1);
                             }
                         }
                     }
@@ -56,15 +56,15 @@ class GildedRose {
                     if (!products.get(i).getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (products.get(i).getQuality() > 0) {
                             if (!products.get(i).getName().equals("Sulfuras, Hand of Ragnaros")) {
-                                products.get(i).setQuality(products.get(i).getQuality() - 1);
+                                products.get(i).decreaseQuality(1);
                             }
                         }
                     } else {
-                        products.get(i).setQuality(products.get(i).getQuality() - products.get(i).getQuality());
+                        products.get(i).decreaseQuality(products.get(i).getQuality());
                     }
                 } else {
                     if (products.get(i).getQuality() < 50) {
-                        products.get(i).setQuality(products.get(i).getQuality() + 1);
+                        products.get(i).increaseQuality(1);
                     }
                 }
             }

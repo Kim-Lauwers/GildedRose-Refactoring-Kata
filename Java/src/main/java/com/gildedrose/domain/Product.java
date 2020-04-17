@@ -33,8 +33,12 @@ public class Product {
         this.sellIn = sellIn;
     }
 
-    public void setQuality(final int quality) {
-        this.quality = quality;
+    public void decreaseQuality(final int amountToDecreaseWith) {
+        this.quality -= amountToDecreaseWith;
+    }
+
+    public void increaseQuality(final int amountToIncreaseWith) {
+        this.quality += amountToIncreaseWith;
     }
 
     @Override

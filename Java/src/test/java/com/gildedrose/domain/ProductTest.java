@@ -5,10 +5,30 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
+import static com.gildedrose.domain.ProductTestBuilder.defaultProduct;
 import static com.gildedrose.domain.ProductTestBuilder.emptyProduct;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
 class ProductTest {
+
+    @Test
+     void test_decrease_quality() {
+        final Product product = defaultProduct().withQuality(10).build();
+
+        product.decreaseQuality(1);
+
+        assertThat(product.getQuality()).isEqualTo(9);
+    }
+
+    @Test
+     void test_increase_quality() {
+        final Product product = defaultProduct().withQuality(10).build();
+
+        product.increaseQuality(1);
+
+        assertThat(product.getQuality()).isEqualTo(11);
+    }
 
     @Test
     void item_EqualsTester() {

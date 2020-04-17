@@ -15,6 +15,7 @@ dependencies {
     testImplementation 'com.google.guava:guava-testlib:29.0-jre'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
     testImplementation 'org.assertj:assertj-core:3.15.0'
+    testImplementation 'org.mockito:mockito-core:3.3.3'
 }
 
 group = 'com.gildedrose'

@@ -1,5 +1,6 @@
 package com.gildedrose.domain;
 
+import com.gildedrose.domain.calculator.QualityCalculator;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -8,9 +9,8 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 public class Product {
     private static final int SELL_IN_DECREASE_AMOUNT = 1;
-    private static final int QUALITY_INCREASE_AMOUNT = 1;
-    private static final int MAXIMUM_QUALITY = 50;
-    private static final int MINIMUM_QUALITY = 0;
+
+    private QualityCalculator qualityCalculator;
 
     private String name;
 
@@ -18,7 +18,8 @@ public class Product {
 
     private int quality;
 
-    private Product() {
+    private Product(final QualityCalculator qualityCalculator) {
+        this.qualityCalculator = qualityCalculator;
     }
 
     public String getName() {
@@ -42,11 +43,15 @@ public class Product {
     }
 
     public void decreaseQuality(final int amountToDecreaseWith) {
-        this.quality = (this.quality - amountToDecreaseWith) >= MINIMUM_QUALITY ? this.quality - amountToDecreaseWith : MINIMUM_QUALITY;
+        this.quality = qualityCalculator.decreaseQuality(this.quality,amountToDecreaseWith);
     }
 
-    public void increaseQuality() {
-        this.quality = (this.quality + QUALITY_INCREASE_AMOUNT) <= MAXIMUM_QUALITY ? this.quality + QUALITY_INCREASE_AMOUNT : MAXIMUM_QUALITY;
+    public void decreaseQuality() {
+        decreaseQuality(1);
+    }
+
+    public void applyNewDay() {
+        this.quality = qualityCalculator.applyNewDay(this.quality,this.sellIn);
     }
 
     @Override
@@ -82,16 +87,16 @@ public class Product {
     public static final class ProductBuilder {
         private Product product;
 
-        private ProductBuilder() {
-            this.product = new Product();
+        private ProductBuilder(final QualityCalculator qualityCalculator) {
+            this.product = new Product(qualityCalculator);
         }
 
-        public static ProductBuilder product() {
-            return new ProductBuilder();
+        public static ProductBuilder product(final QualityCalculator qualityCalculator) {
+            return new ProductBuilder(qualityCalculator);
         }
 
-        public static ProductBuilder product(final Item item) {
-            return product()
+        public static ProductBuilder product(final Item item, final QualityCalculator qualityCalculator) {
+            return product(qualityCalculator)
                     .withName(item.name)
                     .withQuality(item.quality)
                     .withSellIn(item.sellIn);

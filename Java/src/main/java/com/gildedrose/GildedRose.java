@@ -10,7 +10,7 @@ import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
 
 class GildedRose {
-    List<Product> products;
+    final List<Product> products;
 
     public GildedRose(final Item[] input) {
         products = stream(input)

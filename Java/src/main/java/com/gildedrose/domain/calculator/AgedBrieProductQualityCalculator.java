@@ -1,5 +1,6 @@
 package com.gildedrose.domain.calculator;
 
+import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class AgedBrieProductQualityCalculator implements QualityCalculator {
@@ -16,7 +17,7 @@ public class AgedBrieProductQualityCalculator implements QualityCalculator {
 
     @Override
     public int calculateQualitySellInOvertime(final int currentQuality, final int amountToDecreaseWith) {
-        return (currentQuality - amountToDecreaseWith) >= MINIMUM_QUALITY ? currentQuality - amountToDecreaseWith : MINIMUM_QUALITY;
+        return max(MINIMUM_QUALITY, currentQuality - amountToDecreaseWith);
     }
 
     @Override

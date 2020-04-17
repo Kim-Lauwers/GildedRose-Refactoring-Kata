@@ -26,18 +26,6 @@ public class Product {
         return quality;
     }
 
-    public boolean isSellInOvertime() {
-        return sellIn <= 0;
-    }
-
-    public void decreaseQuality(final int amountToDecreaseWith) {
-        this.quality = qualityCalculator.calculateQualitySellInOvertime(this.quality, amountToDecreaseWith);
-    }
-
-    public void decreaseQuality() {
-        decreaseQuality(1);
-    }
-
     public void applyNewDay() {
         if (!"Sulfuras, Hand of Ragnaros".equals(name)) {
             this.sellIn -= SELL_IN_DECREASE_AMOUNT;
@@ -47,6 +35,10 @@ public class Product {
         } else {
             this.quality = qualityCalculator.calculateQualityWithinSellIn(this.quality, this.sellIn);
         }
+    }
+
+    private boolean isSellInOvertime() {
+        return sellIn <= 0;
     }
 
     @Override

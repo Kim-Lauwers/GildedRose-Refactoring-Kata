@@ -24,6 +24,11 @@ class QualityCalculatorFinderTest {
     }
 
     @Test
+    void conjured_find_backstage_calculator() {
+        assertThat(finder.find("Conjured Mana Cake")).isInstanceOf(ConjuredProductQualityCalculator.class);
+    }
+
+    @Test
     void aged_brie_find_aged_brie_calculator() {
         assertThat(finder.find("Aged Brie")).isInstanceOf(AgedBrieProductQualityCalculator.class);
     }

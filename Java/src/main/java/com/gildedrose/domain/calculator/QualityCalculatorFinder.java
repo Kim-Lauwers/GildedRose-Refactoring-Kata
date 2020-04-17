@@ -12,6 +12,7 @@ public class QualityCalculatorFinder {
         qualityCalculatorMap.put("Sulfuras, Hand of Ragnaros", new LegendaryProductQualityCalculator());
         qualityCalculatorMap.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePassProductQualityCalculator());
         qualityCalculatorMap.put("Aged Brie", new AgedBrieProductQualityCalculator());
+        qualityCalculatorMap.put("Conjured Mana Cake", new ConjuredProductQualityCalculator());
     }
 
     public QualityCalculator find(final String productName) {

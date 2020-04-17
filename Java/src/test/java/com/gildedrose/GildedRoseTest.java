@@ -1,7 +1,6 @@
 package com.gildedrose;
 
 import com.gildedrose.domain.Item;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
@@ -135,7 +134,6 @@ class GildedRoseTest {
     }
 
     @Test
-    @Disabled("Is a bug in the original solution")
     void conjured_quality_decrease_with_two_when_selldate_is_not_overtime() {
         final Item[] items = new Item[] {new Item("Conjured Mana Cake", 3, 6)};
 

@@ -9,7 +9,7 @@ public class LegendaryProductQualityCalculator implements QualityCalculator {
     }
 
     @Override
-    public int decreaseQuality(final int currentQuality, final int amountToDecreaseWith) {
+    public int calculateQualitySellInOvertime(final int currentQuality, final int amountToDecreaseWith) {
         return QUALITY_AMOUNT;
     }
 

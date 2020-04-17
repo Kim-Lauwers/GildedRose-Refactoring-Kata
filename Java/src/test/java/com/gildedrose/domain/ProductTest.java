@@ -21,7 +21,7 @@ class ProductTest {
 
     @Test
     void test_sellIn_overtime_false() {
-        final Product product = defaultProduct().withSellIn(0).build();
+        final Product product = defaultProduct().withSellIn(1).build();
 
         assertThat(product.isSellInOvertime()).isFalse();
     }

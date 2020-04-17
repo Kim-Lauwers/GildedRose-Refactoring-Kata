@@ -15,7 +15,7 @@ public class AgedBrieProductQualityCalculator implements QualityCalculator {
     }
 
     @Override
-    public int decreaseQuality(final int currentQuality, final int amountToDecreaseWith) {
+    public int calculateQualitySellInOvertime(final int currentQuality, final int amountToDecreaseWith) {
         return (currentQuality - amountToDecreaseWith) >= MINIMUM_QUALITY ? currentQuality - amountToDecreaseWith : MINIMUM_QUALITY;
     }
 

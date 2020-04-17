@@ -14,17 +14,17 @@ class DefaultProductQualityCalculatorTest {
 
     @Test
     void decrease_subtracts_1() {
-        assertThat(qualityCalculator.decreaseQuality(49, 1)).isEqualTo(48);
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(49, 1)).isEqualTo(48);
     }
 
     @Test
     void decrease_subtracts_2() {
-        assertThat(qualityCalculator.decreaseQuality(49, 2)).isEqualTo(47);
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(49, 2)).isEqualTo(47);
     }
 
     @Test
     void decrease_cannot_go_under_zero() {
-        assertThat(qualityCalculator.decreaseQuality(1, 222)).isEqualTo(0);
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(1, 222)).isEqualTo(0);
     }
 
     @Test

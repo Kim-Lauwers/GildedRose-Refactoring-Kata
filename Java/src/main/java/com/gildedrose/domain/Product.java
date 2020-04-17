@@ -22,24 +22,16 @@ public class Product {
         this.qualityCalculator = qualityCalculator;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getSellIn() {
-        return sellIn;
-    }
-
     public int getQuality() {
         return quality;
     }
 
     public boolean isSellInOvertime() {
-        return sellIn < 0;
+        return sellIn <= 0;
     }
 
     public void decreaseQuality(final int amountToDecreaseWith) {
-        this.quality = qualityCalculator.decreaseQuality(this.quality, amountToDecreaseWith);
+        this.quality = qualityCalculator.calculateQualitySellInOvertime(this.quality, amountToDecreaseWith);
     }
 
     public void decreaseQuality() {
@@ -47,10 +39,12 @@ public class Product {
     }
 
     public void applyNewDay() {
-        if (this.isSellInOvertime()) {
-            this.quality = qualityCalculator.decreaseQuality(this.quality, 1);
-        } else {
+        if (!"Sulfuras, Hand of Ragnaros".equals(name)) {
             this.sellIn -= SELL_IN_DECREASE_AMOUNT;
+        }
+        if (this.isSellInOvertime()) {
+            this.quality = qualityCalculator.calculateQualitySellInOvertime(this.quality, 2);
+        } else {
             this.quality = qualityCalculator.calculateQualityWithinSellIn(this.quality, this.sellIn);
         }
     }
@@ -69,15 +63,15 @@ public class Product {
         final Product product = (Product) obj;
 
         return new EqualsBuilder()
-                .append(getName(), product.name)
-                .append(getSellIn(), product.sellIn)
-                .append(getQuality(), product.quality)
+                .append(name, product.name)
+                .append(sellIn, product.sellIn)
+                .append(quality, product.quality)
                 .isEquals();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(getName()).append(getSellIn()).append(getQuality()).toHashCode();
+        return new HashCodeBuilder().append(name).append(sellIn).append(quality).toHashCode();
     }
 
     @Override

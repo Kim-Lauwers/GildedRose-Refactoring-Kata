@@ -24,7 +24,7 @@ class BackstagePassProductQualityCalculatorTest {
 
     @Test
     void apply_new_day_sellin_passed_no_value() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(5,0)).isEqualTo(0);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(5,0)).isEqualTo(8);
     }
 
     @Test
@@ -33,18 +33,13 @@ class BackstagePassProductQualityCalculatorTest {
     }
 
     @Test
-    void decrease_subtracts_1() {
-        assertThat(qualityCalculator.decreaseQuality(49, 1)).isEqualTo(48);
-    }
-
-    @Test
-    void decrease_subtracts_2() {
-        assertThat(qualityCalculator.decreaseQuality(49, 2)).isEqualTo(47);
+    void in_overtime_gives_zero() {
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(49, 1)).isEqualTo(0);
     }
 
     @Test
     void decrease_cannot_go_under_zero() {
-        assertThat(qualityCalculator.decreaseQuality(1, 222)).isEqualTo(0);
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(1, 222)).isEqualTo(0);
     }
 
 

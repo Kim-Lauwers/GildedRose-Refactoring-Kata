@@ -6,11 +6,11 @@ public class DefaultProductQualityCalculator implements QualityCalculator {
 
     @Override
     public int calculateQualityWithinSellIn(final int currentQuality, final int sellIn) {
-        return decreaseQuality(currentQuality,QUALITY_DECREASE_AMOUNT);
+        return calculateQualitySellInOvertime(currentQuality,QUALITY_DECREASE_AMOUNT);
     }
 
     @Override
-    public int decreaseQuality(final int currentQuality, final int amountToDecreaseWith) {
+    public int calculateQualitySellInOvertime(final int currentQuality, final int amountToDecreaseWith) {
         return (currentQuality - amountToDecreaseWith) >= MINIMUM_QUALITY ? currentQuality - amountToDecreaseWith : MINIMUM_QUALITY;
     }
 

@@ -8,9 +8,6 @@ public class BackstagePassProductQualityCalculator implements QualityCalculator 
 
     @Override
     public int calculateQualityWithinSellIn(final int currentQuality, final int sellIn) {
-        if (sellIn <= 0) {
-            return MINIMUM_QUALITY;
-        }
         int newQuality = currentQuality;
         newQuality += 1;
 
@@ -26,8 +23,8 @@ public class BackstagePassProductQualityCalculator implements QualityCalculator 
     }
 
     @Override
-    public int decreaseQuality(final int currentQuality, final int amountToDecreaseWith) {
-        return (currentQuality - amountToDecreaseWith) >= MINIMUM_QUALITY ? currentQuality - amountToDecreaseWith : MINIMUM_QUALITY;
+    public int calculateQualitySellInOvertime(final int currentQuality, final int amountToDecreaseWith) {
+        return MINIMUM_QUALITY;
     }
 
     @Override

@@ -9,7 +9,12 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'com.google.guava:guava:29.0-jre'
+
+    testImplementation 'com.google.guava:guava-testlib:29.0-jre'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
+    testImplementation 'org.assertj:assertj-core:3.15.0'
 }
 
 group = 'com.gildedrose'

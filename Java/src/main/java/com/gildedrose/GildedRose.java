@@ -26,16 +26,12 @@ class GildedRose {
             }
 
             if (currentProduct.isSellInOvertime()) {
-                if (!currentProduct.getName().equals("Aged Brie")) {
-                    if (!currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
-                            currentProduct.applyNewDay();
-                        }
-                    } else {
-                        currentProduct.decreaseQuality(currentProduct.getQuality());
+                if (!currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
+                        currentProduct.applyNewDay();
                     }
                 } else {
-                    currentProduct.applyNewDay();
+                    currentProduct.decreaseQuality(currentProduct.getQuality());
                 }
             }
         }

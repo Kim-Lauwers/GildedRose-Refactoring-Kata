@@ -13,7 +13,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ProductTest {
 
     @Test
-     void test_decrease_quality() {
+    void test_decrease_sellIn() {
+        final Product product = defaultProduct().withSellIn(100).build();
+
+        product.decreaseSellIn();
+
+        assertThat(product.getSellIn()).isEqualTo(99);
+    }
+
+    @Test
+    void test_decrease_quality() {
         final Product product = defaultProduct().withQuality(10).build();
 
         product.decreaseQuality(1);
@@ -22,7 +31,7 @@ class ProductTest {
     }
 
     @Test
-     void test_increase_quality() {
+    void test_increase_quality() {
         final Product product = defaultProduct().withQuality(10).build();
 
         product.increaseQuality(1);

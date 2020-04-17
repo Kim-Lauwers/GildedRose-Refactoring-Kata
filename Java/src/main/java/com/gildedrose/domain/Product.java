@@ -7,6 +7,7 @@ import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToStrin
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 public class Product {
+    private static final int SELL_IN_DECREASE_AMOUNT = 1;
 
     private String name;
 
@@ -29,8 +30,8 @@ public class Product {
         return quality;
     }
 
-    public void setSellIn(final int sellIn) {
-        this.sellIn = sellIn;
+    public void decreaseSellIn() {
+        this.sellIn -= SELL_IN_DECREASE_AMOUNT;
     }
 
     public void decreaseQuality(final int amountToDecreaseWith) {

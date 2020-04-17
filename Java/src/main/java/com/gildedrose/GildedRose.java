@@ -48,7 +48,7 @@ class GildedRose {
             }
 
             if (!products.get(i).getName().equals("Sulfuras, Hand of Ragnaros")) {
-                products.get(i).setSellIn(products.get(i).getSellIn() - 1);
+                products.get(i).decreaseSellIn();
             }
 
             if (products.get(i).getSellIn() < 0) {

@@ -1,9 +1,12 @@
 package com.gildedrose;
 
+import com.gildedrose.domain.Item;
+import com.gildedrose.domain.Product;
+
 import java.util.Arrays;
 import java.util.List;
 
-import static com.gildedrose.Product.ProductBuilder.product;
+import static com.gildedrose.domain.Product.ProductBuilder.product;
 import static java.util.stream.Collectors.toList;
 
 class GildedRose {

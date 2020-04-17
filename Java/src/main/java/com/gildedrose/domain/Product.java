@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.domain;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -17,15 +17,15 @@ public class Product {
     private Product() {
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    int getSellIn() {
+    public int getSellIn() {
         return sellIn;
     }
 
-    int getQuality() {
+    public int getQuality() {
         return quality;
     }
 

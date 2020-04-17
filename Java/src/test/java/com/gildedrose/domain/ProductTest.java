@@ -1,11 +1,11 @@
-package com.gildedrose;
+package com.gildedrose.domain;
 
 import com.google.common.testing.EqualsTester;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.ProductTestBuilder.emptyProduct;
+import static com.gildedrose.domain.ProductTestBuilder.emptyProduct;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
 class ProductTest {

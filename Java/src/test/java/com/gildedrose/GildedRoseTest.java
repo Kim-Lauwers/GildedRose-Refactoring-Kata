@@ -1,11 +1,12 @@
 package com.gildedrose;
 
+import com.gildedrose.domain.Item;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.ProductTestBuilder.emptyProduct;
+import static com.gildedrose.domain.ProductTestBuilder.emptyProduct;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)

@@ -1,8 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.domain;
 
-import com.gildedrose.Product.ProductBuilder;
+import com.gildedrose.domain.Product.ProductBuilder;
 
-import static com.gildedrose.Product.ProductBuilder.product;
+import static com.gildedrose.domain.Product.ProductBuilder.product;
 import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
 

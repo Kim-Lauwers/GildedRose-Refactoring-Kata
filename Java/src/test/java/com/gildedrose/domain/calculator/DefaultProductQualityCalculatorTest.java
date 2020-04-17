@@ -9,7 +9,7 @@ class DefaultProductQualityCalculatorTest {
 
     @Test
     void apply_new_day_subtracts_1() {
-        assertThat(qualityCalculator.applyNewDay(49,0)).isEqualTo(48);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(49,0)).isEqualTo(48);
     }
 
     @Test

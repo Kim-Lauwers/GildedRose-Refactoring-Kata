@@ -38,12 +38,8 @@ public class Product {
         return sellIn < 0;
     }
 
-    public void decreaseSellIn() {
-        this.sellIn -= SELL_IN_DECREASE_AMOUNT;
-    }
-
     public void decreaseQuality(final int amountToDecreaseWith) {
-        this.quality = qualityCalculator.decreaseQuality(this.quality,amountToDecreaseWith);
+        this.quality = qualityCalculator.decreaseQuality(this.quality, amountToDecreaseWith);
     }
 
     public void decreaseQuality() {
@@ -51,7 +47,12 @@ public class Product {
     }
 
     public void applyNewDay() {
-        this.quality = qualityCalculator.applyNewDay(this.quality,this.sellIn);
+        if (this.isSellInOvertime()) {
+            this.quality = qualityCalculator.decreaseQuality(this.quality, 1);
+        } else {
+            this.sellIn -= SELL_IN_DECREASE_AMOUNT;
+            this.quality = qualityCalculator.calculateQualityWithinSellIn(this.quality, this.sellIn);
+        }
     }
 
     @Override

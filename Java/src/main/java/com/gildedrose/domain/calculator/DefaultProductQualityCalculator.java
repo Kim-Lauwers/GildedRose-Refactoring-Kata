@@ -5,7 +5,7 @@ public class DefaultProductQualityCalculator implements QualityCalculator {
     private static final int MINIMUM_QUALITY = 0;
 
     @Override
-    public int applyNewDay(final int currentQuality, final int sellIn) {
+    public int calculateQualityWithinSellIn(final int currentQuality, final int sellIn) {
         return decreaseQuality(currentQuality,QUALITY_DECREASE_AMOUNT);
     }
 

@@ -4,7 +4,7 @@ public class LegendaryProductQualityCalculator implements QualityCalculator {
     private static final int QUALITY_AMOUNT = 80;
 
     @Override
-    public int applyNewDay(final int currentQuality, final int sellIn) {
+    public int calculateQualityWithinSellIn(final int currentQuality, final int sellIn) {
         return QUALITY_AMOUNT;
     }
 

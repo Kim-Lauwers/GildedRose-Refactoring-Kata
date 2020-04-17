@@ -8,7 +8,7 @@ public class AgedBrieProductQualityCalculator implements QualityCalculator {
     private static final int MINIMUM_QUALITY = 0;
 
     @Override
-    public int applyNewDay(final int currentQuality, final int sellIn) {
+    public int calculateQualityWithinSellIn(final int currentQuality, final int sellIn) {
         int newQuality = currentQuality + QUALITY_CHANGE_AMOUNT;
 
         return min(MAXIMUM_QUALITY, newQuality);

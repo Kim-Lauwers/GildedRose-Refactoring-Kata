@@ -22,17 +22,12 @@ class GildedRose {
         for (final Product currentProduct : products) {
             if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
                 currentProduct.applyNewDay();
-                currentProduct.decreaseSellIn();
             }
 
             if (currentProduct.isSellInOvertime()) {
-                if (!currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
                     if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
                         currentProduct.applyNewDay();
                     }
-                } else {
-                    currentProduct.decreaseQuality(currentProduct.getQuality());
-                }
             }
         }
     }

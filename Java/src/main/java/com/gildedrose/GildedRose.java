@@ -19,9 +19,7 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < products.size(); i++) {
-            final Product currentProduct = products.get(i);
-
+        for (final Product currentProduct : products) {
             if (!currentProduct.getName().equals("Aged Brie")
                     && !currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {

@@ -26,11 +26,14 @@ public class Product {
 
     public void applyNewDay() {
         this.sellIn = sellInCalculator.calculateSellIn(this.sellIn);
+        this.quality = calculateNewQuality();
+    }
+
+    private int calculateNewQuality() {
         if (this.isSellInOvertime()) {
-            this.quality = qualityCalculator.calculateQualitySellInOvertime(this.quality);
-        } else {
-            this.quality = qualityCalculator.calculateQualityWithinSellIn(this.quality, this.sellIn);
+            return qualityCalculator.calculateQualitySellInOvertime(this.quality);
         }
+        return qualityCalculator.calculateQualityWithinSellIn(this.quality, this.sellIn);
     }
 
     private boolean isSellInOvertime() {

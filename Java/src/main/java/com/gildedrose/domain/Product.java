@@ -30,6 +30,10 @@ public class Product {
         return quality;
     }
 
+    public boolean isSellInOvertime() {
+        return sellIn < 0;
+    }
+
     public void decreaseSellIn() {
         this.sellIn -= SELL_IN_DECREASE_AMOUNT;
     }

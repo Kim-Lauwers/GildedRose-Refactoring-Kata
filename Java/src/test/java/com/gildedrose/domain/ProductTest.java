@@ -13,6 +13,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ProductTest {
 
     @Test
+    void test_sellIn_overtime_true() {
+        final Product product = defaultProduct().withSellIn(-1).build();
+
+        assertThat(product.isSellInOvertime()).isTrue();
+    }
+
+    @Test
+    void test_sellIn_overtime_false() {
+        final Product product = defaultProduct().withSellIn(0).build();
+
+        assertThat(product.isSellInOvertime()).isFalse();
+    }
+
+    @Test
     void test_decrease_sellIn() {
         final Product product = defaultProduct().withSellIn(100).build();
 
@@ -29,7 +43,7 @@ class ProductTest {
 
         assertThat(product.getQuality()).isEqualTo(0);
     }
-    
+
     @Test
     void test_decrease_quality() {
         final Product product = defaultProduct().withQuality(10).build();

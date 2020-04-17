@@ -51,7 +51,7 @@ class GildedRose {
                 currentProduct.decreaseSellIn();
             }
 
-            if (currentProduct.getSellIn() < 0) {
+            if (currentProduct.isSellInOvertime()) {
                 if (!currentProduct.getName().equals("Aged Brie")) {
                     if (!currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {

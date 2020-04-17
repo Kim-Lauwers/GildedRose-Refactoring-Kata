@@ -1,10 +1,13 @@
 package com.gildedrose.domain.calculator.quality;
 
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
 import static org.apache.commons.lang3.RandomStringUtils.random;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class QualityCalculatorFinderTest {
     private final QualityCalculatorFinder finder = new QualityCalculatorFinder();
 

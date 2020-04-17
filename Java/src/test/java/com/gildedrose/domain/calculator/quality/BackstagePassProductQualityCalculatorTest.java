@@ -1,35 +1,38 @@
 package com.gildedrose.domain.calculator.quality;
 
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class BackstagePassProductQualityCalculatorTest {
     final QualityCalculator qualityCalculator = new BackstagePassProductQualityCalculator();
 
     @Test
     void apply_new_day_add_1() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(49,11)).isEqualTo(50);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(49, 11)).isEqualTo(50);
     }
 
     @Test
     void apply_new_day_sellin_less_than_11_add_2() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(5,10)).isEqualTo(7);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(5, 10)).isEqualTo(7);
     }
 
     @Test
     void apply_new_day_sellin_less_than_6_add_2() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(5,5)).isEqualTo(8);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(5, 5)).isEqualTo(8);
     }
 
     @Test
     void apply_new_day_sellin_passed_no_value() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(5,0)).isEqualTo(8);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(5, 0)).isEqualTo(8);
     }
 
     @Test
     void apply_new_day_max_50() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(50,1)).isEqualTo(50);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(50, 1)).isEqualTo(50);
     }
 
     @Test

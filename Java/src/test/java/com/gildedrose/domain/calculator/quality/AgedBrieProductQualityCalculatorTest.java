@@ -1,9 +1,12 @@
 package com.gildedrose.domain.calculator.quality;
 
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class AgedBrieProductQualityCalculatorTest {
     final QualityCalculator qualityCalculator = new AgedBrieProductQualityCalculator();
 

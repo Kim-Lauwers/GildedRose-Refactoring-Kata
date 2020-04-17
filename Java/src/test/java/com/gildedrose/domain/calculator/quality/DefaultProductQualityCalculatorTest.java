@@ -1,15 +1,18 @@
 package com.gildedrose.domain.calculator.quality;
 
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class DefaultProductQualityCalculatorTest {
     final QualityCalculator qualityCalculator = new DefaultProductQualityCalculator();
 
     @Test
     void apply_new_day_subtracts_1() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(49,0)).isEqualTo(48);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(49, 0)).isEqualTo(48);
     }
 
     @Test

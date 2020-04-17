@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
+import static com.gildedrose.ProductTestBuilder.emptyProduct;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
@@ -17,7 +18,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("+5 Dexterity Vest", 9, 19));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("+5 Dexterity Vest").withSellIn(9).withQuality(19).build());
     }
 
     @Test
@@ -27,7 +28,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("+5 Dexterity Vest", -1, 18));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("+5 Dexterity Vest").withSellIn(-1).withQuality(18).build());
     }
 
     @Test
@@ -37,7 +38,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("+5 Dexterity Vest", -1, 0));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("+5 Dexterity Vest").withSellIn(-1).withQuality(0).build());
     }
 
     @Test
@@ -47,7 +48,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Aged Brie", 1, 1));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Aged Brie").withSellIn(1).withQuality(1).build());
     }
 
     @Test
@@ -57,7 +58,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Aged Brie", 1, 50));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Aged Brie").withSellIn(1).withQuality(50).build());
     }
 
     @Test
@@ -67,7 +68,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Backstage passes to a TAFKAL80ETC concert", 14, 21));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Backstage passes to a TAFKAL80ETC concert").withSellIn(14).withQuality(21).build());
     }
 
     @Test
@@ -77,7 +78,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Backstage passes to a TAFKAL80ETC concert", 9, 22));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Backstage passes to a TAFKAL80ETC concert").withSellIn(9).withQuality(22).build());
     }
 
     @Test
@@ -87,7 +88,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Backstage passes to a TAFKAL80ETC concert", 4, 23));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Backstage passes to a TAFKAL80ETC concert").withSellIn(4).withQuality(23).build());
     }
 
     @Test
@@ -97,7 +98,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Backstage passes to a TAFKAL80ETC concert", -1, 0));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Backstage passes to a TAFKAL80ETC concert").withSellIn(-1).withQuality(0).build());
     }
 
     @Test
@@ -108,8 +109,8 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Backstage passes to a TAFKAL80ETC concert", 9, 50));
-        assertThat(app.items[1]).isEqualTo(new Item("Backstage passes to a TAFKAL80ETC concert", 4, 50));
+        assertThat(app.products).containsExactly(emptyProduct().withName("Backstage passes to a TAFKAL80ETC concert").withSellIn(9).withQuality(50).build(),
+                emptyProduct().withName("Backstage passes to a TAFKAL80ETC concert").withSellIn(4).withQuality(50).build());
     }
 
     @Test
@@ -119,7 +120,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Sulfuras, Hand of Ragnaros").withSellIn(0).withQuality(80).build());
     }
 
     @Test
@@ -129,7 +130,7 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Sulfuras, Hand of Ragnaros", -1, 80));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Sulfuras, Hand of Ragnaros").withSellIn(-1).withQuality(80).build());
     }
 
     @Test
@@ -140,6 +141,6 @@ class GildedRoseTest {
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(app.items[0]).isEqualTo(new Item("Conjured Mana Cake", 2, 4));
+        assertThat(app.products.get(0)).isEqualTo(emptyProduct().withName("Conjured Mana Cake").withSellIn(2).withQuality(4).build());
     }
 }

@@ -21,6 +21,16 @@ class GildedRoseTest {
     }
 
     @Test
+    void product_quality_decrease_cannot_be_below_zero() {
+        final Item[] items = new Item[] {new Item("+5 Dexterity Vest", 0, 0)};
+
+        final GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertThat(app.items[0]).isEqualTo(new Item("+5 Dexterity Vest", -1, 0));
+    }
+
+    @Test
     void aged_brie_quality_increase_with_one_when_selldate_is_not_overtime() {
         final Item[] items = new Item[] {new Item("Aged Brie", 2, 0)};
 

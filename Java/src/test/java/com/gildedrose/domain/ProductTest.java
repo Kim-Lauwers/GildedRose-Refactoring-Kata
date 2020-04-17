@@ -57,7 +57,7 @@ class ProductTest {
     void test_increase_quality() {
         final Product product = defaultProduct().withQuality(10).build();
 
-        product.increaseQuality(1);
+        product.increaseQuality();
 
         assertThat(product.getQuality()).isEqualTo(11);
     }

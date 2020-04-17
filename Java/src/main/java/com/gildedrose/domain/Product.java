@@ -8,6 +8,7 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 public class Product {
     private static final int SELL_IN_DECREASE_AMOUNT = 1;
+    private static final int QUALITY_INCREASE_AMOUNT = 1;
 
     private String name;
 
@@ -42,8 +43,8 @@ public class Product {
         this.quality = (this.quality - amountToDecreaseWith) >= 0 ? this.quality - amountToDecreaseWith : 0;
     }
 
-    public void increaseQuality(final int amountToIncreaseWith) {
-        this.quality += amountToIncreaseWith;
+    public void increaseQuality() {
+        this.quality += QUALITY_INCREASE_AMOUNT;
     }
 
     @Override

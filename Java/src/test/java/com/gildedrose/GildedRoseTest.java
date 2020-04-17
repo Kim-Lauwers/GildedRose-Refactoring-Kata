@@ -51,6 +51,16 @@ class GildedRoseTest {
     }
 
     @Test
+    void aged_brie_quality_increase_cannot_surpass_50() {
+        final Item[] items = new Item[] {new Item("Aged Brie", 2, 50)};
+
+        final GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertThat(app.items[0]).isEqualTo(new Item("Aged Brie", 1, 50));
+    }
+
+    @Test
     void backstage_quality_increase_with_one_when_selldate_10_days_or_more() {
         final Item[] items = new Item[] {new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20)};
 

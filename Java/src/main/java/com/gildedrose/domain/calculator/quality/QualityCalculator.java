@@ -1,4 +1,4 @@
-package com.gildedrose.domain.calculator;
+package com.gildedrose.domain.calculator.quality;
 
 public interface QualityCalculator {
     int calculateQualityWithinSellIn(final int currentQuality, final int sellIn);

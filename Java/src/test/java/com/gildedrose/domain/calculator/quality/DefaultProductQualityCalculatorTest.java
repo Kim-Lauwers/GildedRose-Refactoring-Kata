@@ -1,20 +1,20 @@
-package com.gildedrose.domain.calculator;
+package com.gildedrose.domain.calculator.quality;
 
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ConjuredProductQualityCalculatorTest {
-    final QualityCalculator qualityCalculator = new ConjuredProductQualityCalculator();
+class DefaultProductQualityCalculatorTest {
+    final QualityCalculator qualityCalculator = new DefaultProductQualityCalculator();
 
     @Test
-    void apply_new_day_subtracts_2() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(49, 0)).isEqualTo(47);
+    void apply_new_day_subtracts_1() {
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(49,0)).isEqualTo(48);
     }
 
     @Test
     void decrease_subtracts_2() {
-        assertThat(qualityCalculator.calculateQualitySellInOvertime(49)).isEqualTo(45);
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(49)).isEqualTo(47);
     }
 
     @Test

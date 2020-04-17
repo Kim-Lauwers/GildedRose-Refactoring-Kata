@@ -1,7 +1,7 @@
 package com.gildedrose.domain;
 
 import com.gildedrose.domain.Product.ProductBuilder;
-import com.gildedrose.domain.calculator.DefaultProductQualityCalculator;
+import com.gildedrose.domain.calculator.quality.DefaultProductQualityCalculator;
 
 import static com.gildedrose.domain.Product.ProductBuilder.product;
 import static org.apache.commons.lang3.RandomStringUtils.random;

@@ -1,4 +1,4 @@
-package com.gildedrose.domain.calculator;
+package com.gildedrose.domain.calculator.quality;
 
 import static java.lang.Math.min;
 

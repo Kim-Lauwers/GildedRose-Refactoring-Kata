@@ -1,6 +1,6 @@
 package com.gildedrose.domain;
 
-import com.gildedrose.domain.calculator.QualityCalculatorFinder;
+import com.gildedrose.domain.calculator.quality.QualityCalculatorFinder;
 
 import static com.gildedrose.domain.Product.ProductBuilder.product;
 

@@ -1,6 +1,6 @@
 package com.gildedrose.domain;
 
-import com.gildedrose.domain.calculator.QualityCalculator;
+import com.gildedrose.domain.calculator.quality.QualityCalculator;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

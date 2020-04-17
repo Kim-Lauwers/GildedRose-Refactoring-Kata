@@ -1,10 +1,10 @@
-package com.gildedrose.domain.calculator;
+package com.gildedrose.domain.calculator.quality;
 
 import static java.lang.Math.max;
 
-public class ConjuredProductQualityCalculator implements QualityCalculator {
-    private static final int QUALITY_DECREASE_AMOUNT = 2;
-    private static final int QUALITY_CHANGE_AMOUNT_OVERTIME = 4;
+public class DefaultProductQualityCalculator implements QualityCalculator {
+    private static final int QUALITY_DECREASE_AMOUNT = 1;
+    private static final int QUALITY_CHANGE_AMOUNT_OVERTIME = 2;
     private static final int MINIMUM_QUALITY = 0;
 
     @Override

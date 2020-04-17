@@ -1,4 +1,4 @@
-package com.gildedrose.domain.calculator;
+package com.gildedrose.domain.calculator.quality;
 
 public class LegendaryProductQualityCalculator implements QualityCalculator {
     private static final int QUALITY_AMOUNT = 80;

@@ -1,4 +1,4 @@
-package com.gildedrose.domain.calculator;
+package com.gildedrose.domain.calculator.quality;
 
 import org.junit.jupiter.api.Test;
 

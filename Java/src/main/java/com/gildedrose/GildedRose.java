@@ -20,51 +20,53 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < products.size(); i++) {
-            if (!products.get(i).getName().equals("Aged Brie")
-                    && !products.get(i).getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (products.get(i).getQuality() > 0) {
-                    if (!products.get(i).getName().equals("Sulfuras, Hand of Ragnaros")) {
-                        products.get(i).decreaseQuality(1);
+            final Product currentProduct = products.get(i);
+
+            if (!currentProduct.getName().equals("Aged Brie")
+                    && !currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (currentProduct.getQuality() > 0) {
+                    if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
+                        currentProduct.decreaseQuality(1);
                     }
                 }
             } else {
-                if (products.get(i).getQuality() < 50) {
-                    products.get(i).increaseQuality(1);
+                if (currentProduct.getQuality() < 50) {
+                    currentProduct.increaseQuality(1);
 
-                    if (products.get(i).getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (products.get(i).getSellIn() < 11) {
-                            if (products.get(i).getQuality() < 50) {
-                                products.get(i).increaseQuality(1);
+                    if (currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+                        if (currentProduct.getSellIn() < 11) {
+                            if (currentProduct.getQuality() < 50) {
+                                currentProduct.increaseQuality(1);
                             }
                         }
 
-                        if (products.get(i).getSellIn() < 6) {
-                            if (products.get(i).getQuality() < 50) {
-                                products.get(i).increaseQuality(1);
+                        if (currentProduct.getSellIn() < 6) {
+                            if (currentProduct.getQuality() < 50) {
+                                currentProduct.increaseQuality(1);
                             }
                         }
                     }
                 }
             }
 
-            if (!products.get(i).getName().equals("Sulfuras, Hand of Ragnaros")) {
-                products.get(i).decreaseSellIn();
+            if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
+                currentProduct.decreaseSellIn();
             }
 
-            if (products.get(i).getSellIn() < 0) {
-                if (!products.get(i).getName().equals("Aged Brie")) {
-                    if (!products.get(i).getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (products.get(i).getQuality() > 0) {
-                            if (!products.get(i).getName().equals("Sulfuras, Hand of Ragnaros")) {
-                                products.get(i).decreaseQuality(1);
+            if (currentProduct.getSellIn() < 0) {
+                if (!currentProduct.getName().equals("Aged Brie")) {
+                    if (!currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+                        if (currentProduct.getQuality() > 0) {
+                            if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
+                                currentProduct.decreaseQuality(1);
                             }
                         }
                     } else {
-                        products.get(i).decreaseQuality(products.get(i).getQuality());
+                        currentProduct.decreaseQuality(currentProduct.getQuality());
                     }
                 } else {
-                    if (products.get(i).getQuality() < 50) {
-                        products.get(i).increaseQuality(1);
+                    if (currentProduct.getQuality() < 50) {
+                        currentProduct.increaseQuality(1);
                     }
                 }
             }

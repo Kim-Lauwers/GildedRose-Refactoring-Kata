@@ -35,7 +35,7 @@ public class Product {
     }
 
     public void decreaseQuality(final int amountToDecreaseWith) {
-        this.quality -= amountToDecreaseWith;
+        this.quality = (this.quality - amountToDecreaseWith) >= 0 ? this.quality - amountToDecreaseWith : 0;
     }
 
     public void increaseQuality(final int amountToIncreaseWith) {

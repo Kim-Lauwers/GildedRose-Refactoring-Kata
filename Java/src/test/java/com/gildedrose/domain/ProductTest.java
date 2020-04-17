@@ -22,6 +22,15 @@ class ProductTest {
     }
 
     @Test
+    void test_decrease_quality_cannot_go_below_zero() {
+        final Product product = defaultProduct().withQuality(0).build();
+
+        product.decreaseQuality(1);
+
+        assertThat(product.getQuality()).isEqualTo(0);
+    }
+    
+    @Test
     void test_decrease_quality() {
         final Product product = defaultProduct().withQuality(10).build();
 

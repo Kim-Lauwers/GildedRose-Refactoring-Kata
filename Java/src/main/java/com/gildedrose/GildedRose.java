@@ -24,10 +24,8 @@ class GildedRose {
 
             if (!currentProduct.getName().equals("Aged Brie")
                     && !currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (currentProduct.getQuality() > 0) {
-                    if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
-                        currentProduct.decreaseQuality(1);
-                    }
+                if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
+                    currentProduct.decreaseQuality(1);
                 }
             } else {
                 if (currentProduct.getQuality() < 50) {
@@ -56,10 +54,8 @@ class GildedRose {
             if (currentProduct.getSellIn() < 0) {
                 if (!currentProduct.getName().equals("Aged Brie")) {
                     if (!currentProduct.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (currentProduct.getQuality() > 0) {
-                            if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
-                                currentProduct.decreaseQuality(1);
-                            }
+                        if (!currentProduct.getName().equals("Sulfuras, Hand of Ragnaros")) {
+                            currentProduct.decreaseQuality(1);
                         }
                     } else {
                         currentProduct.decreaseQuality(currentProduct.getQuality());

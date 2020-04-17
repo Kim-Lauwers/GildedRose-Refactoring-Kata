@@ -10,6 +10,7 @@ public class Product {
     private static final int SELL_IN_DECREASE_AMOUNT = 1;
     private static final int QUALITY_INCREASE_AMOUNT = 1;
     public static final int MAXIMUM_QUALITY = 50;
+    public static final int MINIMUM_QUALITY = 0;
 
     private String name;
 
@@ -41,7 +42,7 @@ public class Product {
     }
 
     public void decreaseQuality(final int amountToDecreaseWith) {
-        this.quality = (this.quality - amountToDecreaseWith) >= 0 ? this.quality - amountToDecreaseWith : 0;
+        this.quality = (this.quality - amountToDecreaseWith) >= MINIMUM_QUALITY ? this.quality - amountToDecreaseWith : MINIMUM_QUALITY;
     }
 
     public void increaseQuality() {

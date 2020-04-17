@@ -1,6 +1,7 @@
 package com.gildedrose.domain;
 
 import com.gildedrose.domain.calculator.quality.QualityCalculator;
+import com.gildedrose.domain.calculator.sellin.SellInCalculator;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -8,9 +9,9 @@ import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToStrin
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 public class Product {
-    private static final int SELL_IN_DECREASE_AMOUNT = 1;
-
     private QualityCalculator qualityCalculator;
+
+    private SellInCalculator sellInCalculator;
 
     private String name;
 
@@ -18,14 +19,13 @@ public class Product {
 
     private int quality;
 
-    private Product(final QualityCalculator qualityCalculator) {
+    private Product(final QualityCalculator qualityCalculator, final SellInCalculator sellInCalculator) {
         this.qualityCalculator = qualityCalculator;
+        this.sellInCalculator = sellInCalculator;
     }
 
     public void applyNewDay() {
-        if (!"Sulfuras, Hand of Ragnaros".equals(name)) {
-            this.sellIn -= SELL_IN_DECREASE_AMOUNT;
-        }
+        this.sellIn = sellInCalculator.calculateSellIn(this.sellIn);
         if (this.isSellInOvertime()) {
             this.quality = qualityCalculator.calculateQualitySellInOvertime(this.quality);
         } else {
@@ -70,16 +70,16 @@ public class Product {
     public static final class ProductBuilder {
         private Product product;
 
-        private ProductBuilder(final QualityCalculator qualityCalculator) {
-            this.product = new Product(qualityCalculator);
+        private ProductBuilder(final QualityCalculator qualityCalculator, final SellInCalculator sellInCalculator) {
+            this.product = new Product(qualityCalculator, sellInCalculator);
         }
 
-        public static ProductBuilder product(final QualityCalculator qualityCalculator) {
-            return new ProductBuilder(qualityCalculator);
+        public static ProductBuilder product(final QualityCalculator qualityCalculator, final SellInCalculator sellInCalculator) {
+            return new ProductBuilder(qualityCalculator, sellInCalculator);
         }
 
-        public static ProductBuilder product(final Item item, final QualityCalculator qualityCalculator) {
-            return product(qualityCalculator)
+        public static ProductBuilder product(final Item item, final QualityCalculator qualityCalculator, final SellInCalculator sellInCalculator) {
+            return product(qualityCalculator, sellInCalculator)
                     .withName(item.name)
                     .withQuality(item.quality)
                     .withSellIn(item.sellIn);

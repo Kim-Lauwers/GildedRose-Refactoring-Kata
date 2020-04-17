@@ -1,6 +1,7 @@
 package com.gildedrose.domain;
 
 import com.gildedrose.domain.calculator.quality.DefaultProductQualityCalculator;
+import com.gildedrose.domain.calculator.sellin.DefaultProductSellInCalculator;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,6 @@ class ProductFactoryTest {
 
         final Product product = createProduct(sourceItem);
 
-        assertThat(product).isEqualTo(product(sourceItem, new DefaultProductQualityCalculator()).build());
+        assertThat(product).isEqualTo(product(sourceItem, new DefaultProductQualityCalculator(), new DefaultProductSellInCalculator()).build());
     }
 }

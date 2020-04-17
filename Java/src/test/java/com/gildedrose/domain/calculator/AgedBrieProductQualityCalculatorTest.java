@@ -9,29 +9,23 @@ class AgedBrieProductQualityCalculatorTest {
 
     @Test
     void apply_new_day_add_1() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(49,0)).isEqualTo(50);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(49, 0)).isEqualTo(50);
     }
 
     @Test
     void apply_new_day_max_50() {
-        assertThat(qualityCalculator.calculateQualityWithinSellIn(50,0)).isEqualTo(50);
-    }
-
-    @Test
-    void decrease_subtracts_1() {
-        assertThat(qualityCalculator.calculateQualitySellInOvertime(49, 1)).isEqualTo(48);
+        assertThat(qualityCalculator.calculateQualityWithinSellIn(50, 0)).isEqualTo(50);
     }
 
     @Test
     void decrease_subtracts_2() {
-        assertThat(qualityCalculator.calculateQualitySellInOvertime(49, 2)).isEqualTo(47);
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(49)).isEqualTo(47);
     }
 
     @Test
     void decrease_cannot_go_under_zero() {
-        assertThat(qualityCalculator.calculateQualitySellInOvertime(1, 222)).isEqualTo(0);
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(0)).isEqualTo(0);
     }
-
 
     @Test
     void applies_to_aged_brie_true() {

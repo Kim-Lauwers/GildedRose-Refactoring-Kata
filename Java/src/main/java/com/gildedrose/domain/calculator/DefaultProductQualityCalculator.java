@@ -4,16 +4,17 @@ import static java.lang.Math.max;
 
 public class DefaultProductQualityCalculator implements QualityCalculator {
     private static final int QUALITY_DECREASE_AMOUNT = 1;
+    private static final int QUALITY_CHANGE_AMOUNT_OVERTIME = 2;
     private static final int MINIMUM_QUALITY = 0;
 
     @Override
     public int calculateQualityWithinSellIn(final int currentQuality, final int sellIn) {
-        return calculateQualitySellInOvertime(currentQuality, QUALITY_DECREASE_AMOUNT);
+        return max(MINIMUM_QUALITY, currentQuality - QUALITY_DECREASE_AMOUNT);
     }
 
     @Override
-    public int calculateQualitySellInOvertime(final int currentQuality, final int amountToDecreaseWith) {
-        return max(MINIMUM_QUALITY, currentQuality - amountToDecreaseWith);
+    public int calculateQualitySellInOvertime(final int currentQuality) {
+        return max(MINIMUM_QUALITY, currentQuality - QUALITY_CHANGE_AMOUNT_OVERTIME);
     }
 
     @Override

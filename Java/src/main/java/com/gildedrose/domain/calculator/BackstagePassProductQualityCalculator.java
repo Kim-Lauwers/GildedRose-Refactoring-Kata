@@ -23,7 +23,7 @@ public class BackstagePassProductQualityCalculator implements QualityCalculator 
     }
 
     @Override
-    public int calculateQualitySellInOvertime(final int currentQuality, final int amountToDecreaseWith) {
+    public int calculateQualitySellInOvertime(final int currentQuality) {
         return MINIMUM_QUALITY;
     }
 

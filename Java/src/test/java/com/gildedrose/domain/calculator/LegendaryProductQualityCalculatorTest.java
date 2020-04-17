@@ -15,7 +15,7 @@ class LegendaryProductQualityCalculatorTest {
 
     @Test
     void decrease_always_returns_80() {
-        assertThat(qualityCalculator.calculateQualitySellInOvertime(0, 0)).isEqualTo(80);
+        assertThat(qualityCalculator.calculateQualitySellInOvertime(0)).isEqualTo(80);
     }
 
     @Test

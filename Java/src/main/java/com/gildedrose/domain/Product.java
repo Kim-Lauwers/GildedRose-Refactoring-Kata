@@ -27,7 +27,7 @@ public class Product {
             this.sellIn -= SELL_IN_DECREASE_AMOUNT;
         }
         if (this.isSellInOvertime()) {
-            this.quality = qualityCalculator.calculateQualitySellInOvertime(this.quality, 2);
+            this.quality = qualityCalculator.calculateQualitySellInOvertime(this.quality);
         } else {
             this.quality = qualityCalculator.calculateQualityWithinSellIn(this.quality, this.sellIn);
         }

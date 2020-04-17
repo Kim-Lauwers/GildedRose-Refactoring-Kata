@@ -5,6 +5,7 @@ import static java.lang.Math.min;
 
 public class AgedBrieProductQualityCalculator implements QualityCalculator {
     private static final int QUALITY_CHANGE_AMOUNT = 1;
+    private static final int QUALITY_CHANGE_AMOUNT_OVERTIME = 2;
     private static final int MAXIMUM_QUALITY = 50;
     private static final int MINIMUM_QUALITY = 0;
 
@@ -16,8 +17,8 @@ public class AgedBrieProductQualityCalculator implements QualityCalculator {
     }
 
     @Override
-    public int calculateQualitySellInOvertime(final int currentQuality, final int amountToDecreaseWith) {
-        return max(MINIMUM_QUALITY, currentQuality - amountToDecreaseWith);
+    public int calculateQualitySellInOvertime(final int currentQuality) {
+        return max(MINIMUM_QUALITY, currentQuality - QUALITY_CHANGE_AMOUNT_OVERTIME);
     }
 
     @Override

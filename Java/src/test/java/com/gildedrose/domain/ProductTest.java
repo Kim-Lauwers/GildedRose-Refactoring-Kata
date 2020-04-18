@@ -19,7 +19,6 @@ import static org.mockito.Mockito.when;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
 @ExtendWith(MockitoExtension.class)
-@MockitoSettings(strictness = Strictness.LENIENT)
 class ProductTest {
     @Mock
     private QualityCalculator qualityCalculator;

@@ -1,5 +1,8 @@
 package com.gildedrose.domain.calculator.quality;
 
+import com.gildedrose.domain.ProductType;
+
+import static com.gildedrose.domain.ProductType.CONJURED;
 import static java.lang.Math.max;
 
 public class ConjuredProductQualityCalculator implements QualityCalculator {
@@ -19,6 +22,6 @@ public class ConjuredProductQualityCalculator implements QualityCalculator {
 
     @Override
     public boolean appliesTo(final String productName) {
-        return true;
+        return CONJURED.equals(ProductType.fromValue(productName));
     }
 }

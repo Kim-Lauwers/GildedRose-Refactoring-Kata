@@ -1,5 +1,8 @@
 package com.gildedrose.domain.calculator.quality;
 
+import com.gildedrose.domain.ProductType;
+
+import static com.gildedrose.domain.ProductType.BACKSTAGE_PASS;
 import static java.lang.Math.min;
 
 public class BackstagePassProductQualityCalculator implements QualityCalculator {
@@ -29,6 +32,6 @@ public class BackstagePassProductQualityCalculator implements QualityCalculator 
 
     @Override
     public boolean appliesTo(final String productName) {
-        return "Backstage passes to a TAFKAL80ETC concert".equals(productName);
+        return BACKSTAGE_PASS.equals(ProductType.fromValue(productName));
     }
 }

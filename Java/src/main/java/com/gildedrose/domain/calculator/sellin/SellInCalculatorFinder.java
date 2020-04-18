@@ -1,21 +1,18 @@
 package com.gildedrose.domain.calculator.sellin;
 
-import java.util.Map;
+import java.util.List;
 
-import static com.google.common.collect.Maps.newHashMap;
+import static com.google.common.collect.Lists.newArrayList;
 
 public class SellInCalculatorFinder {
-    private final Map<String, SellInCalculator> qualityCalculatorMap;
+    private final List<SellInCalculator> qualityCalculatorList = newArrayList(
+            new LegendaryProductSellInCalculator());
 
-    public SellInCalculatorFinder() {
-        qualityCalculatorMap = newHashMap();
-        qualityCalculatorMap.put("Sulfuras, Hand of Ragnaros", new LegendaryProductSellInCalculator());
-    }
 
     public SellInCalculator find(final String productName) {
-        return qualityCalculatorMap.entrySet().stream()
-                .filter(e -> e.getKey().equals(productName))
-                .map(Map.Entry::getValue)
-                .findFirst().orElse(new DefaultProductSellInCalculator());
+        return qualityCalculatorList.stream()
+                .filter(calculator -> calculator.appliesTo(productName))
+                .findFirst()
+                .orElse(new DefaultProductSellInCalculator());
     }
 }

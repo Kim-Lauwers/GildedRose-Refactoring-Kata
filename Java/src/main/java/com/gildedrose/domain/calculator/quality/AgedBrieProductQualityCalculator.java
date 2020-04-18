@@ -1,5 +1,8 @@
 package com.gildedrose.domain.calculator.quality;
 
+import com.gildedrose.domain.ProductType;
+
+import static com.gildedrose.domain.ProductType.AGED_BRIE;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
@@ -23,6 +26,6 @@ public class AgedBrieProductQualityCalculator implements QualityCalculator {
 
     @Override
     public boolean appliesTo(final String productName) {
-        return "Aged Brie".equals(productName);
+        return AGED_BRIE.equals(ProductType.fromValue(productName));
     }
 }

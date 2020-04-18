@@ -26,8 +26,12 @@ class ConjuredProductQualityCalculatorTest {
     }
 
     @Test
-    void applies_to_always_true() {
-        assertThat(qualityCalculator.appliesTo("49")).isTrue();
-        assertThat(qualityCalculator.appliesTo("0")).isTrue();
+    void applies_to_conjured_true() {
+        assertThat(qualityCalculator.appliesTo("Conjured Mana Cake")).isTrue();
+    }
+
+    @Test
+    void applies_to_other_false() {
+        assertThat(qualityCalculator.appliesTo("NOT Conjured Mana Cake")).isFalse();
     }
 }

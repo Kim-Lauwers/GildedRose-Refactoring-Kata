@@ -1,24 +1,18 @@
 package com.gildedrose.domain.calculator.quality;
 
-import java.util.Map;
+import java.util.List;
 
-import static com.google.common.collect.Maps.newHashMap;
+import static com.google.common.collect.Lists.newArrayList;
 
 public class QualityCalculatorFinder {
-    private final Map<String, QualityCalculator> qualityCalculatorMap;
-
-    public QualityCalculatorFinder() {
-        qualityCalculatorMap = newHashMap();
-        qualityCalculatorMap.put("Sulfuras, Hand of Ragnaros", new LegendaryProductQualityCalculator());
-        qualityCalculatorMap.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePassProductQualityCalculator());
-        qualityCalculatorMap.put("Aged Brie", new AgedBrieProductQualityCalculator());
-        qualityCalculatorMap.put("Conjured Mana Cake", new ConjuredProductQualityCalculator());
-    }
+    private final List<QualityCalculator> qualityCalculatorList = newArrayList(new LegendaryProductQualityCalculator(),
+            new BackstagePassProductQualityCalculator(),
+            new AgedBrieProductQualityCalculator(),
+            new ConjuredProductQualityCalculator());
 
     public QualityCalculator find(final String productName) {
-        return qualityCalculatorMap.entrySet().stream()
-                .filter(e -> e.getKey().equals(productName))
-                .map(Map.Entry::getValue)
+        return qualityCalculatorList.stream()
+                .filter(calculator -> calculator.appliesTo(productName))
                 .findFirst().orElse(new DefaultProductQualityCalculator());
     }
 }

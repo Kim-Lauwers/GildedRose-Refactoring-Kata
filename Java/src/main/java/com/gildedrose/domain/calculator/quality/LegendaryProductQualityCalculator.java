@@ -1,5 +1,9 @@
 package com.gildedrose.domain.calculator.quality;
 
+import com.gildedrose.domain.ProductType;
+
+import static com.gildedrose.domain.ProductType.SULFARUS;
+
 public class LegendaryProductQualityCalculator implements QualityCalculator {
     private static final int QUALITY_AMOUNT = 80;
 
@@ -15,6 +19,6 @@ public class LegendaryProductQualityCalculator implements QualityCalculator {
 
     @Override
     public boolean appliesTo(final String productName) {
-        return "Sulfuras, Hand of Ragnaros".equals(productName);
+        return SULFARUS.equals(ProductType.fromValue(productName));
     }
 }

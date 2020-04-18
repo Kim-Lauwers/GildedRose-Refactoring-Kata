@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.junit.jupiter.MockitoSettings;
-import org.mockito.quality.Strictness;
 
 import static com.gildedrose.domain.ProductTestBuilder.emptyProduct;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -27,7 +25,7 @@ class ProductTest {
     private SellInCalculator sellInCalculator;
 
     @Test
-    void apply_new_day_within_sell_in() {
+    void apply_end_of_day_within_sell_in() {
         final Product product = emptyProduct(qualityCalculator, sellInCalculator)
                 .withName("Product")
                 .withQuality(25)
@@ -37,7 +35,7 @@ class ProductTest {
         when(sellInCalculator.calculateSellIn(10)).thenReturn(15);
         when(qualityCalculator.calculateQualityWithinSellIn(25, 15)).thenReturn(35);
 
-        product.applyNewDay();
+        product.applyEndOfDay();
 
         verify(sellInCalculator).calculateSellIn(10);
         verify(qualityCalculator).calculateQualityWithinSellIn(25, 15);
@@ -49,7 +47,7 @@ class ProductTest {
     }
 
     @Test
-    void apply_new_day_in_overtime() {
+    void apply_end_of_day_in_overtime() {
         final Product product = emptyProduct(qualityCalculator, sellInCalculator)
                 .withName("Product")
                 .withQuality(25)
@@ -59,7 +57,7 @@ class ProductTest {
         when(sellInCalculator.calculateSellIn(0)).thenReturn(0);
         when(qualityCalculator.calculateQualitySellInOvertime(25)).thenReturn(24);
 
-        product.applyNewDay();
+        product.applyEndOfDay();
 
         verify(sellInCalculator).calculateSellIn(0);
         verify(qualityCalculator).calculateQualitySellInOvertime(25);

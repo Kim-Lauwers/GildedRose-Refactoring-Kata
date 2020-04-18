@@ -11,7 +11,7 @@ class ConjuredProductQualityCalculatorTest {
     final QualityCalculator qualityCalculator = new ConjuredProductQualityCalculator();
 
     @Test
-    void apply_new_day_subtracts_2() {
+    void apply_end_of_day_subtracts_2() {
         assertThat(qualityCalculator.calculateQualityWithinSellIn(49, 0)).isEqualTo(47);
     }
 

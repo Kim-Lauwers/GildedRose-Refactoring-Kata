@@ -19,6 +19,6 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        products.forEach(Product::applyNewDay);
+        products.forEach(Product::applyEndOfDay);
     }
 }

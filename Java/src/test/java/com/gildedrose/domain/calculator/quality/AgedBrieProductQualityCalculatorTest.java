@@ -11,12 +11,12 @@ class AgedBrieProductQualityCalculatorTest {
     final QualityCalculator qualityCalculator = new AgedBrieProductQualityCalculator();
 
     @Test
-    void apply_new_day_add_1() {
+    void apply_end_of_day_add_1() {
         assertThat(qualityCalculator.calculateQualityWithinSellIn(49, 0)).isEqualTo(50);
     }
 
     @Test
-    void apply_new_day_max_50() {
+    void apply_end_of_day_max_50() {
         assertThat(qualityCalculator.calculateQualityWithinSellIn(50, 0)).isEqualTo(50);
     }
 

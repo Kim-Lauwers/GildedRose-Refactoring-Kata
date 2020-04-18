@@ -24,7 +24,7 @@ public class Product {
         this.sellInCalculator = sellInCalculator;
     }
 
-    public void applyNewDay() {
+    public void applyEndOfDay() {
         this.sellIn = sellInCalculator.calculateSellIn(this.sellIn);
         this.quality = calculateNewQuality();
     }

@@ -12,7 +12,7 @@ class LegendaryProductQualityCalculatorTest {
 
 
     @Test
-    void apply_new_day_always_returns_80() {
+    void apply_end_of_day_always_returns_80() {
         assertThat(qualityCalculator.calculateQualityWithinSellIn(0, 0)).isEqualTo(80);
     }
 

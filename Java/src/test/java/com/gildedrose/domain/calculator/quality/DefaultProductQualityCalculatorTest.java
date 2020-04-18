@@ -11,7 +11,7 @@ class DefaultProductQualityCalculatorTest {
     final QualityCalculator qualityCalculator = new DefaultProductQualityCalculator();
 
     @Test
-    void apply_new_day_subtracts_1() {
+    void apply_end_of_day_subtracts_1() {
         assertThat(qualityCalculator.calculateQualityWithinSellIn(49, 0)).isEqualTo(48);
     }
 
